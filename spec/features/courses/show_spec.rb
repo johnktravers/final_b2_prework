@@ -13,12 +13,6 @@ RSpec.describe 'Course show page' do
     @calc.student_courses.create!(grade: 78.3, student_id: @april.id)
   end
 
-  # As a user,
-  # When I visit a course show page,
-  # Then I see:
-  # - the course's name
-  # - each student in the course listed in order from highest grade to lowest grade
-
   it 'can see the course name and students ordered by grade' do
     visit "/courses/#{@calc.id}"
 
@@ -35,7 +29,6 @@ RSpec.describe 'Course show page' do
     within '#student-2' do
       expect(page).to have_content('April Ludgate (78.3)')
     end
-    save_and_open_page
   end
 
   it 'cannot go to a show page for a course that does not exist' do
